@@ -21,7 +21,7 @@ namespace ReciboMissoes
         {
             InitializeComponent();
 
-            reportViewer1.LocalReport.ReportPath = "C:\\Users\\Mateus\\Documents\\Prog\\VSStudio\\TalaoReciboMissoes\\ReciboMissoes\\Recibo.rdlc";
+            reportViewer1.LocalReport.ReportPath = "../../../Recibo.rdlc";
            
             Microsoft.Reporting.WinForms.ReportParameter[] p =
                 new Microsoft.Reporting.WinForms.ReportParameter[6];
