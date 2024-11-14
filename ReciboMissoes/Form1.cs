@@ -1,3 +1,5 @@
+using System.ServiceModel.Channels;
+
 namespace ReciboMissoes
 {
     public partial class Form1 : Form
@@ -7,39 +9,33 @@ namespace ReciboMissoes
             InitializeComponent();
         }
 
+        //declaracao das classes globais
+        List<ClasseRecibo> classes = new List<ClasseRecibo>(); 
+        ClasseRecibo classeRecibo = new ClasseRecibo();
+
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            AtualizarListaGlobal(); //logo ao carregar traz a lista de recibosEmitidos
         }
+        private void AtualizarListaGlobal() => classes = ClasseRecibo.JsonDessirializarLista();
 
-        private void button1_Click(object sender, EventArgs e)
+        private void gerarReciboButton_Click(object sender, EventArgs e)
         {
-            var classeRecibo = new ClasseRecibo();
-            CriarClasseRecibo(classeRecibo);
+            CriarClasseRecibo(classeRecibo, classes);
             ChamarReciboReport(classeRecibo);
-
-            try
-            {
-                using(StreamWriter sw = new StreamWriter(@"../../../../PdfTeste/recibodb.json"))
-                {
-                    sw.WriteLine(classeRecibo.JsonSerializar(classeRecibo));
-                }
-                MessageBox.Show("ARquivo Salvo");
-            }
-            catch (Exception ex) {
-                MessageBox.Show("Deu Erro " + ex.Message);
-            }
-
+            RegistrarReciboLista(classeRecibo, classes, true);
+            AtualizarListaGlobal();
+            atualizarListaDataGrid_Click(null, e);
         }
-
-        private void CriarClasseRecibo(ClasseRecibo classeRecibo)
+        private void CriarClasseRecibo(ClasseRecibo classeRecibo, List<ClasseRecibo> classes)
         {
+            classeRecibo.NumeroRecibo = classes.Count + 1;
             classeRecibo.MissoesValor = double.Parse(valorMissoestxt.Text);
             classeRecibo.OfertaValor = double.Parse(valorOfertaTxt.Text);
             classeRecibo.Membro = nomeMembroTxt.Text;
             classeRecibo.Congregacao = congTxt.Text;
             classeRecibo.Emissor = emissorTxt.Text;
-            classeRecibo.Total = CalcTotal();
+            classeRecibo.Total = classeRecibo.CalcTotal();
             classeRecibo.Data = DateTime.Now;
         }
         private static void ChamarReciboReport(ClasseRecibo classeRecibo)
@@ -47,17 +43,58 @@ namespace ReciboMissoes
             ReciboViewer rv = new ReciboViewer(classeRecibo);
             rv.Show();
         }
+        private static void RegistrarReciboLista(ClasseRecibo classeRecibo, List<ClasseRecibo> classes, bool addClass)
+        {
+            if(addClass)
+                classes.Add(classeRecibo);
+            
+            classeRecibo.JsonSerializarLista(classes);
+        }
 
+        private void atualizarListaDataGrid_Click(object sender, EventArgs e)
+        {
+            classes = ClasseRecibo.JsonDessirializarLista();
+            dataGrid1.DataSource = classes;
+        }
+        private void dataGrid1_CellDoubleClick(object sender, DataGridViewCellEventArgs e) => DeletarReciboJson(e);
 
-        private double CalcTotal() => double.Parse(valorMissoestxt.Text) + 
-                                      double.Parse(valorOfertaTxt.Text);
+        private void DeletarReciboJson(DataGridViewCellEventArgs e)
+        {
+            int idParaDeletar = (int)dataGrid1.Rows[e.RowIndex].Cells["NumeroRecibo"].Value;
 
-        private void valorMissoestxt_TextChanged(object sender, EventArgs e) => 
+            for (int i = 0; i < classes.Count; i++)
+            {
+                if (classes[i].NumeroRecibo == idParaDeletar)
+                {
+                    classes.Remove(classes[i]);
+                    break;
+                }
+            }
+            ClearDataGrid();
+
+            if (classes.Count == 0)
+            {
+                ClasseRecibo.ClearJsonFile();
+            } else
+            {
+                RegistrarReciboLista(classeRecibo, classes, false);
+            }
+            AtualizarListaGlobal();
+            atualizarListaDataGrid_Click(null, e);
+        }
+
+        private void ClearDataGrid()
+        {
+            dataGrid1.DataSource = null;
+            dataGrid1.Rows.Clear();
+        }
+
+        private void valorMissoestxt_TextChanged(object sender, EventArgs e) =>
                                                 CheckNumber(valorMissoestxt);
 
-        private void valorOfertaTxt_TextChanged(object sender, EventArgs e) => 
+        private void valorOfertaTxt_TextChanged(object sender, EventArgs e) =>
                                                 CheckNumber(valorOfertaTxt);
-        private void CheckNumber (TextBox t)
+        private void CheckNumber(TextBox t)
         {
             if (System.Text.RegularExpressions.Regex.IsMatch(t.Text, "[^0-9]"))
             {
