@@ -18,13 +18,15 @@ namespace ReciboMissoes
         public DateTime Data {  get; set; }
         public string Emissor {  get; set; }
 
+        // public static string path = "../../../../PdfTeste/recibodb.json";
+         public static string path = "recibodb.json";
         public double CalcTotal() => MissoesValor + OfertaValor;
         public void JsonSerializarLista(List<ClasseRecibo> classes)
         {
             var strJson = JsonConvert.SerializeObject(classes, Formatting.Indented);
             try
             {
-                using (StreamWriter sw = new StreamWriter(@"../../../../PdfTeste/recibodb.json"))
+                using (StreamWriter sw = new StreamWriter(@path))
                 {
                     sw.WriteLine(strJson);
                 }
@@ -57,7 +59,7 @@ namespace ReciboMissoes
         {
             try
             {
-                using (StreamWriter sw = new StreamWriter(@"../../../../PdfTeste/recibodb.json"))
+                using (StreamWriter sw = new StreamWriter(@path))
                 {
                     sw.WriteLine(strJson);
                 }
@@ -76,7 +78,7 @@ namespace ReciboMissoes
             try
             {
                 var strJson = "";
-                using (StreamReader sr = new StreamReader(@"../../../../PdfTeste/recibodb.json"))
+                using (StreamReader sr = new StreamReader(@path))
                 {
                     strJson = sr.ReadToEnd();
                     //MessageBox.Show((String.IsNullOrEmpty(strJson)).ToString());
@@ -91,7 +93,7 @@ namespace ReciboMissoes
         public static void ClearJsonFile() {
             try
             {
-                using (StreamWriter sw = new StreamWriter(@"../../../../PdfTeste/recibodb.json"))
+                using (StreamWriter sw = new StreamWriter(@path))
                 {
                     sw.Write("");
                 }
