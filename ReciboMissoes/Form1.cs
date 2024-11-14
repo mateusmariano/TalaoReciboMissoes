@@ -14,14 +14,23 @@ namespace ReciboMissoes
 
         private void button1_Click(object sender, EventArgs e)
         {
+            var classeRecibo = new ClasseRecibo();
+            CriarClasseRecibo(classeRecibo);
 
-            ReciboViewer rv = new ReciboViewer(double.Parse(valorMissoestxt.Text),
-                                                double.Parse(valorOfertaTxt.Text),
-                                                nomeMembroTxt.Text,
-                                                congTxt.Text,
-                                                CalcTotal());
+            ReciboViewer rv = new ReciboViewer(classeRecibo);
             rv.Show();
+
         }
+
+        private void CriarClasseRecibo(ClasseRecibo classeRecibo)
+        {
+            classeRecibo.MissoesValor = double.Parse(valorMissoestxt.Text);
+            classeRecibo.OfertaValor = double.Parse(valorOfertaTxt.Text);
+            classeRecibo.Membro = nomeMembroTxt.Text;
+            classeRecibo.Congregacao = congTxt.Text;
+            classeRecibo.Total = CalcTotal();
+        }
+
         private double CalcTotal() => double.Parse(valorMissoestxt.Text) + 
                                       double.Parse(valorOfertaTxt.Text);
 
