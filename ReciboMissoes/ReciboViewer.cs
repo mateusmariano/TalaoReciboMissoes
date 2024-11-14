@@ -26,7 +26,7 @@ namespace ReciboMissoes
             p[2] = new Microsoft.Reporting.WinForms.ReportParameter("Membro", classeRecibo.Membro);
             p[3] = new Microsoft.Reporting.WinForms.ReportParameter("Cong", classeRecibo.Congregacao);
             p[4] = new Microsoft.Reporting.WinForms.ReportParameter("Total", (classeRecibo.Total.ToString("C")));
-            p[5] = new Microsoft.Reporting.WinForms.ReportParameter("Data", DateTime.Now.ToString("dddd, dd MMMM yyyy HH:mm:ss"));
+            p[5] = new Microsoft.Reporting.WinForms.ReportParameter("Data", classeRecibo.Data.ToString("dddd, dd MMMM yyyy HH:mm:ss"));
             reportViewer1.LocalReport.SetParameters(p);
 
             reportViewer1.RefreshReport();

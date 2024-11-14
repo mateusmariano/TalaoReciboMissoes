@@ -34,6 +34,7 @@
             valorOfertaTxt = new TextBox();
             nomeMembroTxt = new TextBox();
             congTxt = new TextBox();
+            emissorTxt = new TextBox();
             SuspendLayout();
             // 
             // valorMissoestxt
@@ -91,12 +92,23 @@
             congTxt.Size = new Size(450, 45);
             congTxt.TabIndex = 7;
             // 
+            // emissorTxt
+            // 
+            emissorTxt.BackColor = SystemColors.ControlLight;
+            emissorTxt.Font = new Font("Segoe UI", 17F);
+            emissorTxt.ForeColor = Color.Navy;
+            emissorTxt.Location = new Point(187, 611);
+            emissorTxt.Name = "emissorTxt";
+            emissorTxt.Size = new Size(551, 45);
+            emissorTxt.TabIndex = 8;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(750, 779);
+            Controls.Add(emissorTxt);
             Controls.Add(congTxt);
             Controls.Add(nomeMembroTxt);
             Controls.Add(valorOfertaTxt);
@@ -117,5 +129,6 @@
         private TextBox valorOfertaTxt;
         private TextBox nomeMembroTxt;
         private TextBox congTxt;
+        private TextBox emissorTxt;
     }
 }

@@ -16,9 +16,19 @@ namespace ReciboMissoes
         {
             var classeRecibo = new ClasseRecibo();
             CriarClasseRecibo(classeRecibo);
+            ChamarReciboReport(classeRecibo);
 
-            ReciboViewer rv = new ReciboViewer(classeRecibo);
-            rv.Show();
+            try
+            {
+                using(StreamWriter sw = new StreamWriter(@"../../../../PdfTeste/recibodb.json"))
+                {
+                    sw.WriteLine(classeRecibo.JsonSerializar(classeRecibo));
+                }
+                MessageBox.Show("ARquivo Salvo");
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Deu Erro " + ex.Message);
+            }
 
         }
 
@@ -28,8 +38,16 @@ namespace ReciboMissoes
             classeRecibo.OfertaValor = double.Parse(valorOfertaTxt.Text);
             classeRecibo.Membro = nomeMembroTxt.Text;
             classeRecibo.Congregacao = congTxt.Text;
+            classeRecibo.Emissor = emissorTxt.Text;
             classeRecibo.Total = CalcTotal();
+            classeRecibo.Data = DateTime.Now;
         }
+        private static void ChamarReciboReport(ClasseRecibo classeRecibo)
+        {
+            ReciboViewer rv = new ReciboViewer(classeRecibo);
+            rv.Show();
+        }
+
 
         private double CalcTotal() => double.Parse(valorMissoestxt.Text) + 
                                       double.Parse(valorOfertaTxt.Text);
