@@ -45,6 +45,7 @@
             valorMissoestxt.Name = "valorMissoestxt";
             valorMissoestxt.Size = new Size(425, 56);
             valorMissoestxt.TabIndex = 0;
+            valorMissoestxt.TextChanged += valorMissoestxt_TextChanged;
             // 
             // button1
             // 
@@ -68,6 +69,7 @@
             valorOfertaTxt.Name = "valorOfertaTxt";
             valorOfertaTxt.Size = new Size(425, 56);
             valorOfertaTxt.TabIndex = 3;
+            valorOfertaTxt.TextChanged += valorOfertaTxt_TextChanged;
             // 
             // nomeMembroTxt
             // 
