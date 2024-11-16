@@ -17,8 +17,8 @@ namespace ReciboMissoes
         {
             InitializeComponent();
 
-            //reportViewer1.LocalReport.ReportPath = "../../../Recibo.rdlc";// test
-            reportViewer1.LocalReport.ReportPath = "Recibo.rdlc";// publish
+            reportViewer1.LocalReport.ReportPath = "../../../Recibo.rdlc";// test
+            //reportViewer1.LocalReport.ReportPath = "Recibo.rdlc";// publish
 
             Microsoft.Reporting.WinForms.ReportParameter[] p =
                 new Microsoft.Reporting.WinForms.ReportParameter[7];

@@ -18,8 +18,8 @@ namespace ReciboMissoes
         public DateTime Data {  get; set; }
         public string Emissor {  get; set; }
 
-        // public static string path = "../../../../PdfTeste/recibodb.json";
-         public static string path = "recibodb.json";
+         public static string path = "../../../../PdfTeste/recibodb.json";
+         // public static string path = "recibodb.json";
         public double CalcTotal() => MissoesValor + OfertaValor;
         public void JsonSerializarLista(List<ClasseRecibo> classes)
         {

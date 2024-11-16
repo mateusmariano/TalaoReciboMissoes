@@ -133,7 +133,7 @@
     <value>2, 3, 2, 3</value>
   </data>
   <data name="valorMissoestxt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>310, 39</value>
+    <value>310, 47</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="valorMissoestxt.TabIndex" type="System.Int32, mscorlib">
@@ -164,7 +164,7 @@
     <value>2, 3, 2, 3</value>
   </data>
   <data name="valorOfertaTxt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>310, 39</value>
+    <value>310, 47</value>
   </data>
   <data name="valorOfertaTxt.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -194,7 +194,7 @@
     <value>2, 3, 2, 3</value>
   </data>
   <data name="nomeMembroTxt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>386, 31</value>
+    <value>386, 36</value>
   </data>
   <data name="nomeMembroTxt.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -224,7 +224,7 @@
     <value>2, 3, 2, 3</value>
   </data>
   <data name="congTxt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>336, 31</value>
+    <value>336, 36</value>
   </data>
   <data name="congTxt.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -254,7 +254,7 @@
     <value>2, 3, 2, 3</value>
   </data>
   <data name="emissorTxt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>402, 31</value>
+    <value>402, 36</value>
   </data>
   <data name="emissorTxt.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -341,13 +341,13 @@
     <value>2, 3, 2, 3</value>
   </data>
   <data name="atualizarListaDataGrid.Size" type="System.Drawing.Size, System.Drawing">
-    <value>248, 56</value>
+    <value>292, 56</value>
   </data>
   <data name="atualizarListaDataGrid.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
   <data name="atualizarListaDataGrid.Text" xml:space="preserve">
-    <value>Atualizar Lista</value>
+    <value>Mostrar Recibos</value>
   </data>
   <data name="&gt;&gt;atualizarListaDataGrid.Name" xml:space="preserve">
     <value>atualizarListaDataGrid</value>
@@ -5657,6 +5657,9 @@
         /+3////bAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAA==
 </value>
+  </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 3, 2, 3</value>
