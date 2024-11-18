@@ -20,24 +20,17 @@ namespace ReciboMissoes
 
          public static string path = "../../../../PdfTeste/recibodb.json";
          // public static string path = "recibodb.json";
+
+
+        JsonController jsonController = new JsonController();
+
         public double CalcTotal() => MissoesValor + OfertaValor;
-        public void JsonSerializarLista(List<ClasseRecibo> classes)
-        {
-            var strJson = JsonConvert.SerializeObject(classes, Formatting.Indented);
-            try
-            {
-                using (StreamWriter sw = new StreamWriter(@path))
-                {
-                    sw.WriteLine(strJson);
-                }
-            }
-            catch (Exception ex) {
-                MessageBox.Show("Nao Salvou Lista" + ex.Message);
-            }
-        }
+        public void SalvarListaJson(List<ClasseRecibo> classes) => 
+                    jsonController.JsonSerializarLista(path, classes);
         public static List<ClasseRecibo> JsonDessirializarLista ()
         {
-            var strJson = AbrirArquivoClasses();
+            var strJson = JsonController.AbrirArquivoClasses(path);
+
             if (!String.IsNullOrEmpty(strJson))
             {
                 if (strJson.Substring(0, 5) != "Falha")
@@ -50,58 +43,7 @@ namespace ReciboMissoes
             } else
             {
                 var listaRecibos = new List<ClasseRecibo>();
-               // MessageBox.Show("ListaVazia");
                 return listaRecibos;
-            }
-        }
-
-        public bool SalvarArquivoClasses(string strJson)
-        {
-            try
-            {
-                using (StreamWriter sw = new StreamWriter(@path))
-                {
-                    sw.WriteLine(strJson);
-                }
-                MessageBox.Show("ARquivo Salvo");
-                return true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Deu Erro " + ex.Message);
-                return false;
-            }
-
-        }
-        private static string AbrirArquivoClasses()
-        {
-            try
-            {
-                var strJson = "";
-                using (StreamReader sr = new StreamReader(@path))
-                {
-                    strJson = sr.ReadToEnd();
-                    //MessageBox.Show((String.IsNullOrEmpty(strJson)).ToString());
-                }
-                return strJson;
-            }
-            catch (Exception ex) { 
-                return "Falha: " + ex.Message;
-            }       
-        }
-
-        public static void ClearJsonFile() {
-            try
-            {
-                using (StreamWriter sw = new StreamWriter(@path))
-                {
-                    sw.Write("");
-                }
-                MessageBox.Show("A lista de recibos foi esvaziada.");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Não foi possível esvaziar a lista de recibos" + ex.Message);
             }
         }
     }

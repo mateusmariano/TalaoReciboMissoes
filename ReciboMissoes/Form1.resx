@@ -139,6 +139,9 @@
   <data name="valorMissoestxt.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
+  <data name="valorMissoestxt.Text" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="&gt;&gt;valorMissoestxt.Name" xml:space="preserve">
     <value>valorMissoestxt</value>
   </data>
@@ -168,6 +171,9 @@
   </data>
   <data name="valorOfertaTxt.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
+  </data>
+  <data name="valorOfertaTxt.Text" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;valorOfertaTxt.Name" xml:space="preserve">
     <value>valorOfertaTxt</value>
@@ -5657,9 +5663,6 @@
         /+3////bAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAA==
 </value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 3, 2, 3</value>

@@ -106,6 +106,7 @@
             SalvarCaderno.TabIndex = 2;
             SalvarCaderno.Text = "Salvar no caderno";
             SalvarCaderno.UseVisualStyleBackColor = false;
+            SalvarCaderno.Click += SalvarCaderno_Click;
             // 
             // CadernoRegistros
             // 

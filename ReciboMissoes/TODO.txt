@@ -1,0 +1,9 @@
+
+//TODO
+//continuar fazendo cadernos
+//aumentar data grid do caderno
+// colocar diferentes recibos para congregação e membros
+//  MELHORAR logica de id para ambas telas,pois pegar somente o count nao eh o suficiente
+//
+//
+//

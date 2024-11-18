@@ -27,7 +27,8 @@ namespace ReciboMissoes
             AtualizarListaGlobal();
             atualizarListaDataGrid_Click(null, e);
         }
-        private void CriarClasseRecibo(ClasseRecibo classeRecibo, List<ClasseRecibo> classes)
+
+        private void CriarClasseRecibo(ClasseRecibo cslasseRecibo, List<ClasseRecibo> classes)
         {
             classeRecibo.NumeroRecibo = classes.Count + 1;
             classeRecibo.MissoesValor = double.Parse(valorMissoestxt.Text);
@@ -48,7 +49,7 @@ namespace ReciboMissoes
             if(addClass)
                 classes.Add(classeRecibo);
             
-            classeRecibo.JsonSerializarLista(classes);
+            classeRecibo.SalvarListaJson(classes);
         }
 
         private void atualizarListaDataGrid_Click(object sender, EventArgs e)
@@ -74,7 +75,7 @@ namespace ReciboMissoes
 
             if (classes.Count == 0)
             {
-                ClasseRecibo.ClearJsonFile();
+                JsonController.ClearJsonFile(ClasseRecibo.path);
             } else
             {
                 RegistrarReciboLista(classeRecibo, classes, false);

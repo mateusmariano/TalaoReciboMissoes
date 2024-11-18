@@ -31,10 +31,3 @@ namespace ReciboMissoes
     }
 }
 
-//TODO
-// ver quando gera recibo sem valores escritos e da erro
-//continuar fazendo cadernos
-//
-//
-//
-//
