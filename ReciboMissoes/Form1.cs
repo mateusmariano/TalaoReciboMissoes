@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.ServiceModel.Channels;
 
 namespace ReciboMissoes
@@ -10,8 +11,9 @@ namespace ReciboMissoes
         }
 
         //declaracao das classes globais
-        List<ClasseRecibo> classes = new List<ClasseRecibo>(); 
+        List<ClasseRecibo> classes = new List<ClasseRecibo>();
         ClasseRecibo classeRecibo = new ClasseRecibo();
+        DataGridViewCellEventArgs selectedCell;
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -30,7 +32,7 @@ namespace ReciboMissoes
 
         private void CriarClasseRecibo(ClasseRecibo cslasseRecibo, List<ClasseRecibo> classes)
         {
-            classeRecibo.NumeroRecibo = classes.Count + 1;
+            classeRecibo.NumeroRecibo = GetLastIndex(classes);
             classeRecibo.MissoesValor = double.Parse(valorMissoestxt.Text);
             classeRecibo.OfertaValor = double.Parse(valorOfertaTxt.Text);
             classeRecibo.Membro = nomeMembroTxt.Text;
@@ -39,6 +41,12 @@ namespace ReciboMissoes
             classeRecibo.Total = classeRecibo.CalcTotal();
             classeRecibo.Data = DateTime.Now;
         }
+        private int GetLastIndex(List<ClasseRecibo> classes)
+        {
+            return classes.Count > classes[classes.Count - 1].NumeroRecibo ?
+                                               classes.Count + 1 :
+                                               classes[classes.Count - 1].NumeroRecibo + 1;
+        }
         private static void ChamarReciboReport(ClasseRecibo classeRecibo)
         {
             ReciboViewer rv = new ReciboViewer(classeRecibo);
@@ -46,9 +54,9 @@ namespace ReciboMissoes
         }
         private static void RegistrarReciboLista(ClasseRecibo classeRecibo, List<ClasseRecibo> classes, bool addClass)
         {
-            if(addClass)
+            if (addClass)
                 classes.Add(classeRecibo);
-            
+
             classeRecibo.SalvarListaJson(classes);
         }
 
@@ -57,8 +65,8 @@ namespace ReciboMissoes
             classes = ClasseRecibo.JsonDessirializarLista();
             dataGrid1.DataSource = classes;
         }
-        private void dataGrid1_CellDoubleClick(object sender, DataGridViewCellEventArgs e) => DeletarReciboJson(e);
-
+        private void dataGrid1_CellDoubleClick(object sender, DataGridViewCellEventArgs e) {}
+        private void dataGrid1_CellClick(object sender, DataGridViewCellEventArgs e) => selectedCell = e;
         private void DeletarReciboJson(DataGridViewCellEventArgs e)
         {
             int idParaDeletar = (int)dataGrid1.Rows[e.RowIndex].Cells["NumeroRecibo"].Value;
@@ -76,7 +84,8 @@ namespace ReciboMissoes
             if (classes.Count == 0)
             {
                 JsonController.ClearJsonFile(ClasseRecibo.path);
-            } else
+            }
+            else
             {
                 RegistrarReciboLista(classeRecibo, classes, false);
             }
@@ -103,5 +112,22 @@ namespace ReciboMissoes
                 t.Text = t.Text.Remove(t.Text.Length - 1);
             }
         }
+        private void excluir_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Deseja excluir registro?", "Excluir", MessageBoxButtons.YesNo);
+            if (selectedCell != null)
+            {
+                switch (dr)
+                {
+                    case DialogResult.Yes:
+                        DeletarReciboJson(selectedCell);
+                        break;
+                }
+            } else
+            {
+                MessageBox.Show("Selecione um registro para excluir");
+            }
+        }
+
     }
 }

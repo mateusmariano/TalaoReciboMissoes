@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadernoRegistros));
             dataGridView1 = new DataGridView();
             descricaoTxt = new TextBox();
@@ -35,18 +36,31 @@
             entTxt = new TextBox();
             saidaTxt = new TextBox();
             SalvarCaderno = new Button();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // dataGridView1
             // 
-            dataGridView1.BackgroundColor = SystemColors.ButtonFace;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.BackgroundColor = Color.LightSkyBlue;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = SystemColors.MenuHighlight;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Info;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.Location = new Point(15, 272);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.RowTemplate.Resizable = DataGridViewTriState.True;
             dataGridView1.Size = new Size(1321, 437);
             dataGridView1.TabIndex = 0;
+            dataGridView1.CellClick += dataGridView1_CellClick;
             // 
             // descricaoTxt
             // 
@@ -100,7 +114,7 @@
             // 
             SalvarCaderno.BackColor = Color.SteelBlue;
             SalvarCaderno.Font = new Font("Arial", 20F);
-            SalvarCaderno.Location = new Point(531, 210);
+            SalvarCaderno.Location = new Point(414, 210);
             SalvarCaderno.Name = "SalvarCaderno";
             SalvarCaderno.Size = new Size(307, 56);
             SalvarCaderno.TabIndex = 2;
@@ -108,12 +122,25 @@
             SalvarCaderno.UseVisualStyleBackColor = false;
             SalvarCaderno.Click += SalvarCaderno_Click;
             // 
+            // button1
+            // 
+            button1.BackColor = Color.SteelBlue;
+            button1.Font = new Font("Arial", 20F);
+            button1.Location = new Point(811, 210);
+            button1.Name = "button1";
+            button1.Size = new Size(307, 56);
+            button1.TabIndex = 3;
+            button1.Text = "Excluir Registro";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
             // CadernoRegistros
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1348, 721);
+            Controls.Add(button1);
             Controls.Add(SalvarCaderno);
             Controls.Add(saidaTxt);
             Controls.Add(entTxt);
@@ -136,5 +163,6 @@
         private TextBox entTxt;
         private TextBox saidaTxt;
         private Button SalvarCaderno;
+        private Button button1;
     }
 }

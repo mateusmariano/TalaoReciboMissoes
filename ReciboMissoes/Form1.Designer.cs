@@ -37,6 +37,7 @@
             dataGrid1 = new DataGridView();
             gerarReciboButton = new Button();
             atualizarListaDataGrid = new Button();
+            excluir = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGrid1).BeginInit();
             SuspendLayout();
             // 
@@ -79,10 +80,11 @@
             // 
             // dataGrid1
             // 
-            dataGrid1.BackgroundColor = SystemColors.ButtonFace;
+            dataGrid1.BackgroundColor = Color.LightSkyBlue;
             dataGrid1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             resources.ApplyResources(dataGrid1, "dataGrid1");
             dataGrid1.Name = "dataGrid1";
+            dataGrid1.CellClick += dataGrid1_CellClick;
             dataGrid1.CellDoubleClick += dataGrid1_CellDoubleClick;
             // 
             // gerarReciboButton
@@ -103,10 +105,20 @@
             atualizarListaDataGrid.UseVisualStyleBackColor = false;
             atualizarListaDataGrid.Click += atualizarListaDataGrid_Click;
             // 
+            // excluir
+            // 
+            excluir.BackColor = Color.SteelBlue;
+            resources.ApplyResources(excluir, "excluir");
+            excluir.ForeColor = Color.Black;
+            excluir.Name = "excluir";
+            excluir.UseVisualStyleBackColor = false;
+            excluir.Click += excluir_Click;
+            // 
             // Form1
             // 
             AutoScaleMode = AutoScaleMode.Inherit;
             resources.ApplyResources(this, "$this");
+            Controls.Add(excluir);
             Controls.Add(atualizarListaDataGrid);
             Controls.Add(gerarReciboButton);
             Controls.Add(dataGrid1);
@@ -134,5 +146,6 @@
         private DataGridView dataGrid1;
         private Button gerarReciboButton;
         private Button atualizarListaDataGrid;
+        private Button excluir;
     }
 }

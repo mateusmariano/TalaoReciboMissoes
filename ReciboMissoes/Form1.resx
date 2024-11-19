@@ -152,7 +152,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;valorMissoestxt.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="valorOfertaTxt.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
@@ -185,7 +185,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;valorOfertaTxt.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="nomeMembroTxt.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
@@ -215,7 +215,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;nomeMembroTxt.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="congTxt.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
@@ -245,7 +245,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;congTxt.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="emissorTxt.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
@@ -275,7 +275,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;emissorTxt.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="dataGrid1.Location" type="System.Drawing.Point, System.Drawing">
     <value>711, 11</value>
@@ -302,7 +302,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dataGrid1.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="gerarReciboButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -335,7 +335,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;gerarReciboButton.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="atualizarListaDataGrid.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 20pt</value>
@@ -365,6 +365,39 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;atualizarListaDataGrid.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="excluir.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 20pt</value>
+  </data>
+  <data name="excluir.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="excluir.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1038, 537</value>
+  </data>
+  <data name="excluir.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 3, 2, 3</value>
+  </data>
+  <data name="excluir.Size" type="System.Drawing.Size, System.Drawing">
+    <value>292, 56</value>
+  </data>
+  <data name="excluir.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="excluir.Text" xml:space="preserve">
+    <value>Excluir Registro</value>
+  </data>
+  <data name="&gt;&gt;excluir.Name" xml:space="preserve">
+    <value>excluir</value>
+  </data>
+  <data name="&gt;&gt;excluir.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;excluir.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;excluir.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
